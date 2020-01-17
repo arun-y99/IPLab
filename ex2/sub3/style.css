@@ -1,0 +1,19 @@
+body{
+  background-color: yellow;
+}
+
+a {
+  color: red;
+}
+
+.bold {
+  font: bold 14px arial, sans-serif;
+}
+
+.header {
+  font: italic 14px arial, sans-serif ; 
+}
+
+td {
+  font: 14px arial, sans-serif;
+}

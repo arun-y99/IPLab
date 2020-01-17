@@ -1,0 +1,43 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id="e1">
+	<div style="border: 4px double red;   height: 20%;width: 100%;text-align:center;font-size:18pt;float:left;">   
+	This is a sample paragraph
+	</div>
+	<div id="e2" style="border: 4px double red;   height: 79%;width: 100%;text-align:center;font-size:18pt;float:right;">
+		<div style="border: 4px double red;   height: 100%;width: 20%;text-align:center;font-size:18pt;float:left;">
+			<ul>
+			<li><a id="home" href="#" onclick="load_home()"> Home </a></li>
+			<li><a id="home" href="#" onclick="load_fee()">Fee Structure</a></li>
+			<li><a id="home" href="#" onclick="load_achievements()">Achievements</a></li>
+			<li><a id="home" href="#" onclick="load_home()">Academics</a></li>
+			<li><a id="home" href="#" onclick="load_home()">Results</a></li>
+			<li><a id="home" href="#" onclick="load_home()">Contact us</a></li>
+			</ul>
+		</div>
+		<div id="dis" style="border: 4px double red;   height: 100%;width: 79%;float:right;">
+		</div>
+	</div>
+</div>
+
+</body>
+<script>
+function load_home() {
+     document.getElementById("dis").innerHTML='<object type="text/html" data="home.html" width="100%" height="100%" ></object>';
+	return false;
+}
+function load_fee() {
+     document.getElementById("dis").innerHTML='<object type="text/html" data="fee.html" width="100%" height="100%" ></object>';
+	return false;
+}
+function load_achievements() {
+     document.getElementById("dis").innerHTML='<object type="text/html" data="achievements.html" width="100%" height="100%" ></object>';
+	return false;
+}
+</script>
+</html>
