@@ -1,0 +1,113 @@
+<html>
+<body>
+<h1> Complaint Registration Form </h1>
+<form>
+District: <select name="district">
+	<option value="Chittoor">Chittoor</option>
+	<option value="Kadapa">Kadapa</option>
+	<option value="Kurnool">Kurnool</option>
+	<option value="Guntur">Guntur</option>
+</select>
+<br>
+Name: <input id="name" type="text" placeholder="Enter name" required onblur="verifyName()">
+<br>
+Gender: <select name="gender" id="gender">
+	<option value="male">Male</option>
+	<option value="female">Female</option>
+</select>
+<br>
+Date of Birth: <input id="date" type="text" placeholder="DD/MM/YYYY" required onblur="verifyDate()">
+<br>
+Address: <textarea id="address" name="address"></textarea>
+<br>
+Mobile: <input id="mobile" type="text" placeholder="Enter number" onblur="verifyMobile()" required>
+<br>
+Email: <input id="email" type="text" placeholder="someone@example.com" onblur="verifyEmail()" required>
+<br>
+Subject: <select name="subject">
+	<option value="Subject1">1</option>
+	<option value="Subject2">2</option>
+	<option value="subject3">3</option>
+	<option value="Subject4">4</option>
+</select>
+<br>
+Date of Occurence: <input type="text" placeholder="DD/MM/YYYY" required>
+<br>
+Place of Occurence: <textarea name="address"></textarea>
+<br>
+Description: <textarea name="address"></textarea>
+<br>
+Documents: <input type="radio" name="docs" value="yes"> Yes
+<input type="radio" name="docs" value="no"> No<br>
+Select a file: <input type="file" name="myFile"><br><br>
+<br>
+<br>
+<br>
+<button onclick="display()">Register</button> 
+</form>
+</body>
+<script>
+	function verifyDate() {
+		var d = document.getElementById("date").value;
+		if(d=="") {
+			alert("Empty field");
+		}
+		else {
+			var days = [-1,31,28,31,30,31,30,31,31,30,31,30,31];
+			var new_d = d.split("/");
+			var day = new_d[0];
+			var month = new_d[1];
+			var year = new_d[2];
+			if(year%4==0) {
+				days[2]=29;
+			}
+			if(month>12)
+				alert("Wrong date");
+			if(day>days[month])
+				alert("Wrong date");	
+			alert("Date : "+day+"/"+month+"/"+year);		
+		}
+	}
+	function verifyName() {
+		var exp = new RegExp("^[A-z]+[a-z]+$");
+		var name = document.getElementById("name").value;
+		if(name!="") {			
+			if(!exp.test(name)) {
+				alert("Wrong name");
+			}
+		}
+		else {
+			alert("Fill name");
+		}
+	}
+	function verifyMobile() {
+		var exp = new RegExp("^[0-9]{10}$");
+		var mob = document.getElementById("mobile").value;
+		if(mob!="") {			
+			if(!exp.test(mob)) {
+				alert("Wrong mobile number");
+			}
+		}
+		else {
+			alert("Fill mobile number");
+		}
+	}
+	function verifyEmail() {
+		var exp = new RegExp("^[a-z]+[0-9]*@[a-z]+.com$");
+		var email = document.getElementById("email").value;
+		if(email!="") {			
+			if(!exp.test(email)) {
+				alert("Wrong email");
+			}
+		}
+		else {
+			alert("Fill email");
+		}
+	}
+	function display() {
+		var g = document.getElementById("gender");
+		var a = document.getElementById("address").value;
+		alert("Gender: "+g.value+"\nAddress: "+a);
+	}
+</script>
+</html>
