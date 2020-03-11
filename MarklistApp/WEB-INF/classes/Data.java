@@ -19,17 +19,18 @@ public class Data extends HttpServlet{
 			Statement stmt = con.createStatement();
 			String sql = "select * from student";
 			ResultSet rs = stmt.executeQuery(sql);
-			String id,marks;
+			String id,marks,sub;
 			String name;
 			out.println("<table border='1'>");
-			out.println("<tr><th>Rollno</th><th>Name</th><th>Marks</th></tr>");	
+			out.println("<tr><th>Rollno</th><th>Name</th><th>Subject</th><th>Marks</th></tr>");	
 			while(rs.next()) {
 				id = rs.getString("rollno");
 				//out.println(id);
 				name = rs.getString("name");
 				marks = rs.getString("marks");
+				sub = rs.getString("sub");
 				if(Integer.parseInt(id) == Integer.parseInt(rid)) { 
-					out.println("<tr><td>"+id+"</td><td>"+ name+"</td><td>"+marks+"</td></tr>");
+					out.println("<tr><td>"+id+"</td><td>"+ name+"</td><td>"+sub+"</td><td>"+marks+"</td></tr>");
 				}
 			}
 			out.println("</table></body></html>");
